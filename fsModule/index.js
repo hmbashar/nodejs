@@ -35,22 +35,37 @@ let server = http.createServer(function(request, response) {
         // });
 
         // Sync
-        fs.writeFileSync('hello.txt', 'Hello World from Node.js with Sync', function(error) {
+        // fs.writeFileSync('helloSyncs.txt', 'Hello World from Node.js with Sync', function(error) {
+        //     if(error) {
+        //         response.writeHead(404, {'Content-Type': 'text/html'});
+        //         response.write("File Not Found");
+        //         response.end();
+        //     }else {
+        //         response.writeHead(200, {'Content-Type': 'text/html'});
+        //         response.write("File Created Successfully");
+        //         response.end();
+        //     }
+        // });
+
+
+        fs.rename('helloSyncs.txt', 'demo2.text', function(error) {
             if(error) {
                 response.writeHead(404, {'Content-Type': 'text/html'});
                 response.write("File Not Found");
                 response.end();
             }else {
                 response.writeHead(200, {'Content-Type': 'text/html'});
-                response.write("File Created Successfully");
+                response.write("File Renamed Successfully");
                 response.end();
             }
-        });
+        })
+
+
     }
 
 });
 
 
-server.listen(4040);
+server.listen(4050);
 
-console.log("Server running Success at http://localhost:4040/");
+console.log("Server running Success at http://localhost:4050/");
