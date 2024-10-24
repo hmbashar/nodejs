@@ -21,7 +21,21 @@ let server = http.createServer(function(request, response) {
         // response.end();
 
 
-        fs.writeFile('hello.txt', 'Hello World from Node.js', function(error) {
+        // Async
+        // fs.writeFile('hello.txt', 'Hello World from Node.js', function(error) {
+        //     if(error) {
+        //         response.writeHead(404, {'Content-Type': 'text/html'});
+        //         response.write("File Not Found");
+        //         response.end();
+        //     }else {
+        //         response.writeHead(200, {'Content-Type': 'text/html'});
+        //         response.write("File Created Successfully");
+        //         response.end();
+        //     }
+        // });
+
+        // Sync
+        fs.writeFileSync('hello.txt', 'Hello World from Node.js with Sync', function(error) {
             if(error) {
                 response.writeHead(404, {'Content-Type': 'text/html'});
                 response.write("File Not Found");
