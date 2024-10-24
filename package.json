@@ -4,7 +4,7 @@
   "main": "response.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node response.js"
+    "start": "node url.js"
   },
   "keywords": [],
   "author": "",
