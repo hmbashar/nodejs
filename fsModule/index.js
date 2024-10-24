@@ -48,18 +48,30 @@ let server = http.createServer(function(request, response) {
         // });
 
 
-        fs.rename('helloSyncs.txt', 'demo2.text', function(error) {
+        // Sync
+        // fs.rename('helloSyncs.txt', 'demo2.text', function(error) {
+        //     if(error) {
+        //         response.writeHead(404, {'Content-Type': 'text/html'});
+        //         response.write("File Not Found");
+        //         response.end();
+        //     }else {
+        //         response.writeHead(200, {'Content-Type': 'text/html'});
+        //         response.write("File Renamed Successfully");
+        //         response.end();
+        //     }
+        // })
+
+        fs.unlink('demo2.text', function(error) {
             if(error) {
                 response.writeHead(404, {'Content-Type': 'text/html'});
                 response.write("File Not Found");
                 response.end();
             }else {
                 response.writeHead(200, {'Content-Type': 'text/html'});
-                response.write("File Renamed Successfully");
+                response.write("File Deleted Successfully");
                 response.end();
             }
-        })
-
+        });
 
     }
 
