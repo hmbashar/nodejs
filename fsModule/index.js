@@ -15,10 +15,23 @@ let server = http.createServer(function(request, response) {
         // });
 
         //Sync
-        let dataSync = fs.readFileSync('home.html');
-        response.writeHead(200, {'Content-Type': 'text/html'});
-        response.write(dataSync);
-        response.end();
+        // let dataSync = fs.readFileSync('home.html');
+        // response.writeHead(200, {'Content-Type': 'text/html'});
+        // response.write(dataSync);
+        // response.end();
+
+
+        fs.writeFile('hello.txt', 'Hello World from Node.js', function(error) {
+            if(error) {
+                response.writeHead(404, {'Content-Type': 'text/html'});
+                response.write("File Not Found");
+                response.end();
+            }else {
+                response.writeHead(200, {'Content-Type': 'text/html'});
+                response.write("File Created Successfully");
+                response.end();
+            }
+        });
     }
 
 });
